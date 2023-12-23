@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct Booking_hotelsApp: App {
+
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        WindowGroup(id: "main") {
+            NavigationStack {
+                HotelVIew()
+            }
+            .onAppear {
+                let appearance = UINavigationBarAppearance()
+                appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+                appearance.backgroundColor = UIColor(Color.white.opacity(0.2))
+                UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            }
         }
+        
     }
 }
